@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TroologyAssignmentApplication</string>
+    <string name="received">Received</string>
+    <string name="approved">Approved</string>
+    <string name="inProcess">InProcess</string>
+    <string name="rejected">Rejected</string>
+    <string name="back">Back</string>
+
+</resources>
