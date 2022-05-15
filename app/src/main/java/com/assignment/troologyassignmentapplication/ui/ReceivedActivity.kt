@@ -2,6 +2,7 @@ package com.assignment.troologyassignmentapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -20,6 +21,7 @@ class ReceivedActivity : AppCompatActivity() {
         binding = ActivityReceivedBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.progressBarInReceived.visibility = View.VISIBLE
         viewModel = ViewModelProvider(this)[ReceivedDataViewModel::class.java]
         viewModel.getReceivedData("m@b1l3app","1","1","0","0","0")
 
@@ -34,7 +36,7 @@ class ReceivedActivity : AppCompatActivity() {
         viewModel.receivedDataResponse.observe(this, Observer {
             it.let {
 
-
+                binding.progressBarInReceived.visibility = View.GONE
                 binding.tvPurposeReceived.text =  it[0].PurposeType
                 binding.tvCountText.text = it[0].DistrictId
                 val mAdapter = ReceivedDataAdapter(it)
